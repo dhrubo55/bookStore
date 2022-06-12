@@ -15,6 +15,11 @@ application:
   max-issue-book: 5
   jwt-expiration-time: 86400000
   jwt-secret: m0hibul
+  token-expiry-minute: 30
+  token-prefix: Bearer
+  auth-header-name: Authorization
+  token-validation-regex: ^Bearer\s[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.?[A-Za-z0-9-_.+/=]*$
+  seeder-enabled: true
 
 ---
 spring:
