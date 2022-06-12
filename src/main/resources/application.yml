@@ -1,0 +1,77 @@
+server:
+  tomcat:
+    accept-count: 300
+
+spring:
+  profiles:
+    active: ${ACTIVE_PROFILE:default}
+  aop:
+    auto: true
+
+
+
+application:
+  request-id-header: request-id
+  max-issue-book: 5
+  jwt-expiration-time: 86400000
+  jwt-secret: m0hibul
+
+---
+spring:
+  config:
+    activate:
+      on-profile: default
+  datasource:
+    url: ${DB_URL:jdbc:h2:mem:mlab_db}
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:password}
+
+    driver-class-name: org.h2.Driver
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 10
+  h2:
+    console:
+      enabled: true
+      settings:
+        trace: true
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: false
+        enable_lazy_load_no_trans: true
+  flyway:
+    user: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:password}
+    enabled: false
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: stage
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/mlab_db}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:toor}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 10
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: true
+        enable_lazy_load_no_trans: true
