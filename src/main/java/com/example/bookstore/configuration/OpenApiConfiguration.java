@@ -26,7 +26,7 @@ public class OpenApiConfiguration {
     @Bean
     public GroupedOpenApi api() {
         return GroupedOpenApi.builder()
-                .group("MLAB Assessment")
+                .group("Book Store")
                 .pathsToExclude("/dummy/**")
                 .build();
     }
@@ -36,8 +36,6 @@ public class OpenApiConfiguration {
         return new OpenAPI()
                 .addSecurityItem(new SecurityRequirement().addList(SECURITY_TYPE))
                 .components(getSecurityComponents())
-                .addTagsItem(new Tag().name("Users Controller"))
-                .addTagsItem(new Tag().name("Books Controller"))
                 .info(getApiInfo());
     }
 
@@ -51,9 +49,9 @@ public class OpenApiConfiguration {
 
     private Info getApiInfo() {
         return new Info()
-                .title("MLAB Assessment Api")
+                .title("Book Store Api")
                 .version("v1")
-                .description("A RESTful API Service for MLAB Assessment")
+                .description("A RESTful API Service for Book Store")
                 .contact(getContactInfo())
                 .termsOfService("http://swagger.io/terms/")
                 .license(new License().name("Apache 2.0").url("http://springdoc.org"));
