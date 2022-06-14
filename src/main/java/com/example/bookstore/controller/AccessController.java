@@ -15,7 +15,7 @@ public class AccessController {
 
     private final AuthService authService;
 
-    @PostMapping("/access/token")
+    @PostMapping("/login")
     public ResponseEntity<TokenResponse> authenticate(@RequestBody AuthenticationRequest request) {
         return ResponseEntity.ok(authService.authenticate(request));
     }
