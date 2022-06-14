@@ -7,6 +7,7 @@ import com.example.bookstore.service.impl.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -50,7 +51,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private String[] getAllowedUrls(){
         return new String[]{
-                "/access/token",
+                "/login",
                 "/v3/api-docs/**",
                 "/swagger-ui.html",
                 "/swagger-ui/**",
@@ -66,12 +67,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private String[] getAllowedUrlsForUser(){
         return new String[]{
-                "/book/get-all",
-                "/book/get-by-id/*",
-                "/book/search-by-book-name",
-                "/book/search-by-author-name",
-                "/book/issue",
-                "/book/submit",
+
         };
     }
 
