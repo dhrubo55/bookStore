@@ -58,6 +58,7 @@ public class BookController extends BaseController {
                         bookService.searchBook(dto)));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping("/books")
     public ResponseEntity<ApiResponse<BookResponse>> create(@RequestBody @Valid BookCreateRequest dto,
                                                             BindingResult result){
@@ -67,6 +68,7 @@ public class BookController extends BaseController {
                         bookService.createBook(dto)));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PutMapping("/books")
     public ResponseEntity<ApiResponse<BookResponse>> update(@RequestBody @Valid BookUpdateRequest dto,
                                                             BindingResult result){
@@ -76,6 +78,7 @@ public class BookController extends BaseController {
                         bookService.updateBook(dto)));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @DeleteMapping("/books/{id}")
     public ResponseEntity<ApiResponse<BookResponse>> deleteBookById(@PathVariable long id){
         return ResponseEntity.ok(
