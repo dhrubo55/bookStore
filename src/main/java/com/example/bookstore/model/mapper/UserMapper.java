@@ -117,7 +117,7 @@ public class UserMapper {
                 entity.getId(),
                 entity.getUsername(),
                 //password encoder
-                passwordEncoder.encode(entity.getPassword()),
+                entity.getPassword(),
                 getGrantedAuthorities(entity.getRoles())
         );
     }
