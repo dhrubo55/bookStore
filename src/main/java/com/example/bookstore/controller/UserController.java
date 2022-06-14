@@ -8,6 +8,7 @@ import com.example.bookstore.service.UserService;
 import com.example.bookstore.util.ResponseBuilder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,8 @@ public class UserController extends BaseController {
 
     private final UserService userService;
 
-    @GetMapping("/user/get-all")
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @GetMapping("/users")
     public ResponseEntity<ApiResponse<List<UserResponse>>> getAllUsers() {
         return ResponseEntity.ok(
                 ResponseBuilder
@@ -28,7 +30,8 @@ public class UserController extends BaseController {
         );
     }
 
-    @GetMapping("/user/get-by-id/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @GetMapping("/users/{id}")
     public ResponseEntity<ApiResponse<UserResponse>> getUserById(@PathVariable long id) {
         return ResponseEntity.ok(
                 ResponseBuilder
@@ -36,7 +39,8 @@ public class UserController extends BaseController {
         );
     }
 
-    @PostMapping("/user/create")
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PostMapping("/users")
     public ResponseEntity<ApiResponse<UserResponse>> createNewUser(@RequestBody @Valid UserCreateRequest dto, BindingResult result) {
         super.throwIfHasError(result);
 
@@ -46,7 +50,8 @@ public class UserController extends BaseController {
         );
     }
 
-    @PostMapping("/user/update")
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PutMapping("/users")
     public ResponseEntity<ApiResponse<UserResponse>> updateUser(@RequestBody @Valid UserUpdateRequest dto, BindingResult result) {
         super.throwIfHasError(result);
 
@@ -56,7 +61,8 @@ public class UserController extends BaseController {
         );
     }
 
-    @DeleteMapping("/user/delete-by-id/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @DeleteMapping("/users/{id}")
     public ResponseEntity<ApiResponse<UserResponse>> deleteUserById(@PathVariable long id){
         return ResponseEntity.ok(
                 ResponseBuilder
