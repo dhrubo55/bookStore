@@ -41,4 +41,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: dhurbo55/bookStore:latest
+        tags: dhurbo55/bookstore:latest
