@@ -6,10 +6,10 @@ A Simple Rest API Project for Book Store
 API Endpoints are Documented Here
 
 ### USER CONTROLLERS
-![image info](./user-controllers.PNG)
+![image info](./user-controllers.png)
 
 ### BOOK CONTROLLERS
-![image info](./book-controllers.PNG)
+![image info](./book-controllers.png)
 
 You can use the Swagger API Doc for Testing Rest APIs
 
