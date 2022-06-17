@@ -5,6 +5,15 @@ A Simple Rest API Project for Book Store
 ## [Swagger API Doc][swagger-url]
 API Endpoints are Documented Here
 
+## Running instructions
+
+### Docker:
+pull and run from docker hub using 
+```docker run -d --name bookstore -p 8080:8080 dhurbo55/bookstore:latest```
+
+### Maven Build:
+run ```mvn clean install```
+
 ### USER CONTROLLERS
 ![image info](./user-controllers.png)
 
