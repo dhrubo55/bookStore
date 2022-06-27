@@ -1,6 +1,17 @@
 # bookStore
 
 A Simple Rest API Project for Book Store
+web service where it exposes a set of REST apis to support the building of a library management system.
+
+####Entities
+1. User
+2. Book
+3. Book Meta
+#### Supported Functions
+* User and Books is CRUD able
+* Fixed set of books can be issued to user at a time
+* Support authentication and authorization using jwt with role based access
+* Migration of db and localization support
 
 ## [Swagger API Doc][swagger-url]
 API Endpoints are Documented Here
